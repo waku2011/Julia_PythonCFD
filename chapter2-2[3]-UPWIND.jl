@@ -24,7 +24,7 @@ plt = plot(x, q, marker=:circle, label="n=0",xlabel="x", ylabel="q")
 
 # time stepping
 for n = 1:nmax
-  qold = q
+  qold = copy(q)
   for j = 2:jmax  # Not 2:jmax-1
      global q[j] = qold[j] - dt * c *(qold[j] - qold[j-1])/dx  # 式(2.9)
   end

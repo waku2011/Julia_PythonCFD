@@ -16,7 +16,7 @@ function do_computing(x ,q, c, dt, nmax, dx)
   
   # time stepping
   for n = 1:nmax
-    qold = q
+    qold = copy(q)
     for j = 2:jmax-1
       c2 = (c + abs(c)) / 2
       c3 = (c - abs(c)) / 2

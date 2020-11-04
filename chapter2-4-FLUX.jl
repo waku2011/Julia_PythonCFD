@@ -51,7 +51,7 @@ function do_computing(x ,q, c, dt, dx, nmax, ff)
   
   # time stepping
   for n = 1:nmax
-    qold = q
+    qold = copy(q)
     for j = 2:jmax-1
       ff1 = ff(qold, c, dt, dx, j)
       ff2 = ff(qold, c, dt, dx, j-1)

@@ -48,7 +48,7 @@ function do_computing(x ,q, c, dt, dx, nmax, ff, order::Int64=1, interval::Int64
   jmax = length(x)
   flux = zeros(Float64, jmax)
   for n = 1:nmax
-    qold = q
+    qold = copy(q)
     for j = 1:jmax-1
        flux[j] = ff(qold, c, dt, dx, j)
     end
@@ -74,7 +74,7 @@ function do_computing2(x ,q, c, dt, dx, nmax, ff, interval::Int64=2)
   g     = zeros(Float64, jmax)
   flux  = zeros(Float64, jmax)
   for n = 1:nmax
-    qold = q
+    qold = copy(q)
     for j = 1:jmax-1
        delta[j] = qold[j+1]-qold[j]
     end

@@ -46,7 +46,7 @@ function do_computing(x, y, q, c, d, dt, dx, dy, nmax, interval::Int64=2)
   
   # time stepping
   for n = 1:nmax
-    qold = q
+    qold = copy(q)
     println(maximum(q)," ", minimum(q))
     for k = 2:kmax-1
        for j = 2:jmax-1

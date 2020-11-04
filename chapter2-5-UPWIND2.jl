@@ -45,7 +45,7 @@ function do_computing(x ,q, c, dt, dx, nmax, ff, order, interval)
   
   # time stepping
   for n = 1:nmax
-    qold = q
+    qold = copy(q)
     for j = order+1:jmax-order
       ff1 = ff(qold, c, dt, dx, j)
       ff2 = ff(qold, c, dt, dx, j-1)
@@ -60,7 +60,6 @@ function do_computing(x ,q, c, dt, dx, nmax, ff, order, interval)
   display(plt)
   readline()
 end
-
 # UPWIND1 
 c = 1    
 q1, q2 = 1, 0

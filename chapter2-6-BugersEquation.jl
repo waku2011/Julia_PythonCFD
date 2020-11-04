@@ -53,7 +53,7 @@ function do_computing(x ,q, c, dt, dx, nmax, ff, order::Int64=1, interval::Int64
   
   # time stepping
   for n = 1:nmax
-    qold = q
+    qold = copy(q)
     for j = order+1:jmax-order
       ff1 = ff(qold, qold[j], dt, dx, j)
       ff2 = ff(qold, qold[j], dt, dx, j-1)
